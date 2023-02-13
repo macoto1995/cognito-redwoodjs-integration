@@ -4182,6 +4182,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@redwoodjs/auth-custom-setup@npm:4.1.2":
+  version: 4.1.2
+  resolution: "@redwoodjs/auth-custom-setup@npm:4.1.2"
+  dependencies:
+    "@babel/runtime-corejs3": 7.20.13
+    "@redwoodjs/cli-helpers": 4.1.2
+    core-js: 3.27.2
+  checksum: 24f0ed5dfa3bc389bf3a66b7719e0db7b44dc38e39f9bb34ff529f6d1dc6fcfae4cb36b9840aaffac3c70def254dbc3fdf161e38a7d271690d36fceec3f45f2b
+  languageName: node
+  linkType: hard
+
 "@redwoodjs/auth@npm:4.1.2":
   version: 4.1.2
   resolution: "@redwoodjs/auth@npm:4.1.2"
@@ -20752,6 +20763,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@redwoodjs/auth-custom-setup": 4.1.2
     "@redwoodjs/core": 4.1.2
   languageName: unknown
   linkType: soft
@@ -23697,6 +23709,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:web"
   dependencies:
+    "@redwoodjs/auth": 4.1.2
     "@redwoodjs/forms": 4.1.2
     "@redwoodjs/router": 4.1.2
     "@redwoodjs/web": 4.1.2
