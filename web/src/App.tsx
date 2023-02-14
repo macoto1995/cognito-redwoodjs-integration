@@ -3,7 +3,7 @@ import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
 import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react'
-import * as theme from 'config/chakra.config'
+import theme from 'src/lib/theme'
 
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
