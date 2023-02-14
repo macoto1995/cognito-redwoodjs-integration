@@ -1,11 +1,14 @@
+import { Auth } from 'aws-amplify';
 import { createAuthentication } from '@redwoodjs/auth'
-
 // If you're integrating with an auth service provider you should delete this interface.
 // Instead you should import the type from their auth client sdk.
+
+type LoginInput = { email: string, password: string }
+type SignUpInput = { email: string, password: string }
 export interface AuthClient {
-  login: () => User
+  login: (input: LoginInput) => Promise<User>
   logout: () => void
-  signup: () => User
+  signup: (input: SignUpInput) => Promise<User>
   getToken: () => string
   getUserMetadata: () => User | null
 }
@@ -30,16 +33,30 @@ export interface ValidateResetTokenResponse {
 
 // Replace this with the auth service provider client sdk
 const client = {
-  login: () => ({
-    id: 'unique-user-id',
-    email: 'email@example.com',
-    roles: [],
-  }),
-  signup: () => ({
-    id: 'unique-user-id',
-    email: 'email@example.com',
-    roles: [],
-  }),
+  login: async ({ email, password }: LoginInput) => {
+    // cognitoUserPool.getClientId()
+    const result = await Auth.signIn(email, password)
+    console.log({ result });
+
+    return({
+      id: 'unique-user-id',
+      email: 'email@example.com',
+      roles: [],
+    })
+  },
+  signup: async ({email, password}: SignUpInput) => {
+    const { user } = await Auth.signUp({
+      username: email,
+      password,
+      attributes: { email },
+    autoSignIn: { enabled: true }
+  });
+  return ({
+      id: 'unique-user-id',
+      email: 'email@example.com',
+      roles: [],
+    })
+},
   logout: () => {},
   getToken: () => 'super-secret-short-lived-token',
   getUserMetadata: () => ({
@@ -65,9 +82,9 @@ function createAuthImplementation(client: AuthClient) {
   return {
     type: 'custom-auth',
     client,
-    login: async () => client.login(),
+    login: async (input: LoginInput) => client.login(input),
     logout: async () => client.logout(),
-    signup: async () => client.signup(),
+    signup: async (input: SignUpInput) => client.signup(input),
     getToken: async () => client.getToken(),
     /**
      * Actual user metadata might look something like this
