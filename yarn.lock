@@ -11522,6 +11522,7 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 4.1.2
     "@redwoodjs/graphql-server": 4.1.2
+    aws-jwt-verify: ^3.4.0
   languageName: unknown
   linkType: soft
 
@@ -12126,6 +12127,13 @@ __metadata:
     "@aws-amplify/xr": 4.0.14
     tslib: ^2.0.0
   checksum: 581efb2ac3d6a4853394136bbea96b5233c4594fa5cd5a8107a6de65c43a1c635aa629fe19bc622d68918ddf33ab2327bdbb7d3effa7f5714340c2a97424e8e7
+  languageName: node
+  linkType: hard
+
+"aws-jwt-verify@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "aws-jwt-verify@npm:3.4.0"
+  checksum: 15eb4583a163588b3599abcfa6744820b307889f7d087b084c7564584c9cefd81133d1d3e3c872a91dabf83aab10a34da185eaa72b8bd1dfa2e96e410f255475
   languageName: node
   linkType: hard
 

@@ -1,6 +1,21 @@
-import { parseJWT, Decoded } from '@redwoodjs/api'
+import { parseJWT, Decoded, Decoder } from '@redwoodjs/api'
 import { AuthenticationError, ForbiddenError } from '@redwoodjs/graphql-server'
+import { CognitoJwtVerifier } from 'aws-jwt-verify';
+import { COGNITO_CLIENT_ID, COGNITO_USER_POOL_ID } from 'src/env';
 
+
+// Verifier that expects valid access tokens:
+const verifier = CognitoJwtVerifier.create({
+  userPoolId: COGNITO_USER_POOL_ID,
+  tokenUse: "access",
+  clientId: COGNITO_CLIENT_ID,
+});
+
+export const authDecoder: Decoder = (token, type, { event, context }) => {
+
+  const decoded = verifier.verify(token)
+  return decoded
+}
 /**
  * Represents the user attributes returned by the decoding the
  * Authentication provider's JWT together with an optional list of roles.
@@ -32,6 +47,8 @@ type RedwoodUser = Record<string, unknown> & { roles?: string[] }
 export const getCurrentUser = async (
   decoded: Decoded
 ): Promise<RedwoodUser | null> => {
+  console.log({decoded});
+
   if (!decoded) {
     return null
   }
