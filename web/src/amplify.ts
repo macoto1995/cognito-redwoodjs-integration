@@ -32,7 +32,7 @@ Amplify.configure({
         // expires: 1,
         sameSite: "lax",
         secure: true,
-        domain: ".example.com",
+        domain: "localhost",
       },
   }
 });

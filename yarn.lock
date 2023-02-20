@@ -6645,6 +6645,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hookform/resolvers@npm:^2.9.11":
+  version: 2.9.11
+  resolution: "@hookform/resolvers@npm:2.9.11"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: b24049aa57e72547bd8b4d9b37c5088585306e2d9454ee23b5530621d07eabb8e90748f48b5bafb8299f1f95bac3863b9a2e0aabd540cd6380ebbd605f012283
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.8":
   version: 0.11.8
   resolution: "@humanwhocodes/config-array@npm:0.11.8"
@@ -27856,6 +27865,7 @@ __metadata:
     "@chakra-ui/react": ^1
     "@emotion/react": ^11
     "@emotion/styled": ^11
+    "@hookform/resolvers": ^2.9.11
     "@redwoodjs/auth": 4.1.2
     "@redwoodjs/forms": 4.1.2
     "@redwoodjs/router": 4.1.2

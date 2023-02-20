@@ -16,6 +16,7 @@
     "@chakra-ui/react": "^1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@hookform/resolvers": "^2.9.11",
     "@redwoodjs/auth": "4.1.2",
     "@redwoodjs/forms": "4.1.2",
     "@redwoodjs/router": "4.1.2",
